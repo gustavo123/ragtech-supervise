@@ -40,4 +40,6 @@ RUN rm -rf /tmp/supervise \
 
 EXPOSE 4470
 
-ENTRYPOINT ["/opt/supervise/supsvc"]
+WORKDIR /opt/supervise
+
+ENTRYPOINT ["/bin/sh", "-c", "/opt/supervise/supsvc"]

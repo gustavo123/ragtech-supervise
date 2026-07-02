@@ -20,7 +20,7 @@ This image automatically downloads the official installer from Ragtech, extracts
 Clone the repository:
 
 ```bash
-git clone https://github.com/<user>/ragtech-supervise.git
+git clone https://github.com/gustavo123/ragtech-supervise.git
 
 cd ragtech-supervise
 ```
@@ -36,24 +36,15 @@ docker compose up -d --build
 # Build Docker Compose
 
 ```yaml
-version: "3.8"
-
 services:
-
   supervise:
     container_name: supervise
-
     build:
       context: .
       dockerfile: Dockerfile
-
     restart: unless-stopped
-
-    privileged: true
-
     devices:
       - /dev/ttyACM0:/dev/ttyACM0
-
     ports:
       - "4470:4470"
 ```
@@ -63,22 +54,13 @@ services:
 # Using Docker Hub
 
 ```yaml
-version: "3.8"
-
 services:
-
   supervise:
     container_name: supervise
-
-    image: seuusuario/ragtech-supervise:latest
-
+    image: gustavobitencourt/ragtech-supervise:latest
     restart: unless-stopped
-
-    privileged: true
-
     devices:
       - /dev/ttyACM0:/dev/ttyACM0
-
     ports:
       - "4470:4470"
 ```
@@ -109,7 +91,7 @@ Then update compose:
 
 ```yaml
 devices:
-  - /dev/ragtech0:/dev/ragtech0
+  - /dev/ragtech0:/dev/ttyACM0
 ```
 
 ---
