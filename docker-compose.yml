@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  supervise:
+    container_name: supervise
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    devices:
+      - /dev/ttyACM0:/dev/ttyACM0
+    ports:
+      - "4470:4470"
